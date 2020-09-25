@@ -31,8 +31,6 @@ public class Frag1 extends Fragment {
         btn_leave = (Button) view.findViewById(R.id.btn_leave);
         btn_inquire = (Button) view.findViewById(R.id.btn_inquire);
 
-        Bundle bundle = getArguments();
-        final String userEmail = bundle.getString("userEmail");
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
