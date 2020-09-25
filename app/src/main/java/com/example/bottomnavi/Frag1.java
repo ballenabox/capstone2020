@@ -21,19 +21,18 @@ public class Frag1 extends Fragment {
 
     private View view;
     private TextView tv_id, tv_pass, tv_email;
-    private Button btn_logout;
-    static final String[] LIST_HOME = {"로그아웃","1 : 1 문의하기","회원탈퇴"};
-
+    private Button btn_logout,btn_leave,btn_inquire;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.frag1, container, false);
 
-        ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1,LIST_HOME);
         btn_logout = (Button) view.findViewById(R.id.btn_logout);
-        ListView home_listview1= (ListView) view.findViewById(R.id.home_listview1) ;
-        home_listview1.setAdapter(adapter);
+        btn_leave = (Button) view.findViewById(R.id.btn_leave);
+        btn_inquire = (Button) view.findViewById(R.id.btn_inquire);
 
+        Bundle bundle = getArguments();
+        final String userEmail = bundle.getString("userEmail");
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,12 +52,13 @@ public class Frag1 extends Fragment {
             }
         });
 
-        home_listview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView parent, View v, int position, long id){
-                String strText = (String) parent.getItemAtPosition(position);
-            }
+        btn_inquire.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent intent =new Intent(getActivity(),privateAskActivity.class);
+                intent.putExtra("userEmail",userEmail);
+                startActivity(intent);
 
+            }
         });
 
         return view;

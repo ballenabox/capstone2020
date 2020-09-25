@@ -7,24 +7,48 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/menuTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Menu Category"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_kor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48000002" />
+
+
     <!-- 버튼을 누르면 해당 메뉴의 Count + 1 -->
+
     <Button
         android:id="@+id/btn_kor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="164dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:background="@drawable/buttonshape"
         android:text="한식"
         android:textSize="24sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_chi"
+        android:background="@drawable/buttonshape"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -34,12 +58,14 @@
         android:layout_marginRight="16dp"
         android:text="중식"
         android:textSize="24sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/btn_kor"
         app:layout_constraintStart_toStartOf="@+id/btn_kor"
         app:layout_constraintTop_toBottomOf="@+id/btn_kor" />
 
     <Button
         android:id="@+id/btn_jap"
+        android:background="@drawable/buttonshape"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -49,12 +75,14 @@
         android:layout_marginRight="16dp"
         android:text="일식"
         android:textSize="24sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/btn_chi"
         app:layout_constraintStart_toStartOf="@+id/btn_chi"
         app:layout_constraintTop_toBottomOf="@+id/btn_chi" />
 
     <Button
         android:id="@+id/btn_usa"
+        android:background="@drawable/buttonshape"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -64,12 +92,14 @@
         android:layout_marginRight="16dp"
         android:text="양식"
         android:textSize="24sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/btn_jap"
         app:layout_constraintStart_toStartOf="@+id/btn_jap"
         app:layout_constraintTop_toBottomOf="@+id/btn_jap" />
 
     <Button
         android:id="@+id/btn_fast"
+        android:background="@drawable/buttonshape"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -79,6 +109,7 @@
         android:layout_marginRight="16dp"
         android:text="분식"
         android:textSize="24sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/btn_usa"
         app:layout_constraintStart_toStartOf="@+id/btn_usa"
         app:layout_constraintTop_toBottomOf="@+id/btn_usa" />

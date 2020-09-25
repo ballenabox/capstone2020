@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -45,11 +46,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        Intent Intent = getIntent();
+        String userEmail = getIntent().getStringExtra("userEmail");
         frag1 = new Frag1();
         frag2 = new Frag2();
         frag3 = new Frag3();
         setFrag(0);
-
     }
 
     private void setFrag(int n) {
