@@ -18,6 +18,11 @@ public class Frag2 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.frag2, container, false);
 
+        //MainActivity에서 전달한 번들 저장
+        Bundle bundle = getArguments();
+        String userID = bundle.getString("userID");
+        String userEmail = bundle.getString("userEmail");
+        String userPass = bundle.getString("userPass");
         return view;
     }
 }
