@@ -55,7 +55,6 @@ public class Frag1 extends Fragment {
         btn_inquire.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent =new Intent(getActivity(),privateAskActivity.class);
-                intent.putExtra("userEmail",userEmail);
                 startActivity(intent);
 
             }
