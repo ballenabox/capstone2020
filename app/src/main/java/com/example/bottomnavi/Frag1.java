@@ -31,7 +31,6 @@ import org.json.JSONObject;
 public class Frag1 extends Fragment {
 
     private View view;
-    private TextView tv_id, tv_pass, tv_email;
     private Button btn_logout,btn_leave,btn_inquire;
     private Context context;
     @Nullable
