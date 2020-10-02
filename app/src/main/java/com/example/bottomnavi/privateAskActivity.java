@@ -19,41 +19,47 @@ public class privateAskActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.private_ask);
-        Button btn_cancle = findViewById(R.id.button5);
-        Button btn_sending = findViewById(R.id.button4);
-        final EditText et_title1 = (EditText)findViewById(R.id.et_title1);
-        final EditText et_body1 = (EditText)findViewById(R.id.et_body1);
+        Button btn_cancel = findViewById(R.id.btn_cancel);
+        Button btn_sending = findViewById(R.id.btn_sending);
+        final EditText et_title1 = findViewById(R.id.et_title1);
+        final EditText et_body1 = findViewById(R.id.et_body1);
         EditText et_email1;
 
 
 
 /*
-//자신의 이메일 자동으로 채워넣기 기능.
+        // 자신의 이메일 자동으로 채워넣기 기능.
         Intent intent = getIntent();
         String stringEmail = intent.getStringExtra("userEmail");
         et_email1 = findViewById(R.id.et_email1);
         et_email1.setText(stringEmail);
         */
 
-        btn_cancle.setOnClickListener(new View.OnClickListener(){
+        // 취소 버튼
+        btn_cancel.setOnClickListener(new View.OnClickListener(){
             @Override
                     public void onClick(View v){
                 finish();
             }
         });
-        //보내기 버튼을 클릭하였을때.
+
+        // 보내기 버튼을 클릭하였을때.
         btn_sending.setOnClickListener(new View.OnClickListener(){
             @Override
                     public void onClick(View v){
+                // 관리자 이메일
                 String to = "wjdtj9656@gmail.com";
+                // 제목
                 String subject = et_title1.getText().toString();
+                // 내용
                 String message = et_body1.getText().toString();
-                //제목을 미입력시.
+
+                // 제목을 미입력시.
                 if(TextUtils.isEmpty(subject)){
                     Toast.makeText(getApplicationContext(), "제목을 입력해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                //내용을 미입력시.
+                // 내용을 미입력시.
                 if(TextUtils.isEmpty(message)){
                     Toast.makeText(getApplicationContext(), "문의 내용을 입력해주세요.", Toast.LENGTH_SHORT).show();
                     return;

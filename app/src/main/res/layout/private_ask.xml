@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_sending"
         android:layout_width="129dp"
         android:layout_height="68dp"
         android:layout_marginEnd="10dp"
@@ -17,10 +17,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button5" />
+        app:layout_constraintStart_toEndOf="@+id/btn_cancel" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_cancel"
         android:layout_width="110dp"
         android:layout_height="69dp"
         android:layout_marginStart="9dp"
@@ -28,8 +28,8 @@
         android:background="@drawable/buttonshape"
         android:text="취소"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button4"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_sending"
+        app:layout_constraintEnd_toStartOf="@+id/btn_sending"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText

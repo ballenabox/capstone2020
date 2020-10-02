@@ -61,25 +61,28 @@ public class Frag1 extends Fragment {
 
             }
         });
-        //MainActivity에서 전달한 번들 저장
+
+        // MainActivity에서 전달한 번들 저장
         Bundle bundle = getArguments();
         final String userID = bundle.getString("userID");
         String userEmail = bundle.getString("userEmail");
         final String userPass = bundle.getString("userPass");
 
+        // 문의하기 버튼
         btn_inquire.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent intent =new Intent(getActivity(),privateAskActivity.class);
                 startActivity(intent);
-
             }
         });
+
         //회원탈퇴 버튼 구현.
         btn_leave.setOnClickListener(new View.OnClickListener(){
            public void onClick(View v){
                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                builder.setTitle("정말로 삭제 하시겠습니까?");
                builder.setMessage("복구가 불가능 합니다.");
+
                //경고창에서 예를 눌렀을 경우.
                builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
                    @Override
@@ -108,16 +111,15 @@ public class Frag1 extends Fragment {
                            RequestQueue queue = Volley.newRequestQueue(getActivity());
                            queue.add(secedeRequest);
 
-
                        }
 
                });
+
                //경고창에서 아니오를 눌렀을경우
                builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
                    @Override
                    public void onClick(DialogInterface dialogInterface, int i) {
                        Toast.makeText(context, "회원탈퇴를 취소 했습니다.", Toast.LENGTH_SHORT).show();
-
                    }
                });
                builder.create().show();
@@ -125,12 +127,7 @@ public class Frag1 extends Fragment {
         });
 
 
-
-
-
-
         return view;
-
 
     }
 }
