@@ -10,7 +10,7 @@ import java.util.Map;
 public class secedeUserRequest extends StringRequest {
 
     // 서버 URL 설정(PHP 파일 연동)
-    final static private String URL = "http://211.192.245.92:81/test2/Delete.php";
+    final static private String URL = "http://172.30.1.20/test2/Delete.php";
     private Map<String, String> map;
 
     public secedeUserRequest(String User_ID, String Password, Response.Listener<String> listener) {
