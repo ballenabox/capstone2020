@@ -3,10 +3,7 @@
     package="com.example.bottomnavi">
 
     <uses-permission android:name="android.permission.INTERNET" />
-<<<<<<< HEAD
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-=======
->>>>>>> 5aa1871891bf4d91507faea4a87cbd01dfdb4c1e
 
     <application
         android:usesCleartextTraffic="true"
@@ -28,8 +25,4 @@
         <activity android:name=".MainActivity" />
     </application>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 5aa1871891bf4d91507faea4a87cbd01dfdb4c1e
 </manifest>
