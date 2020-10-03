@@ -46,13 +46,14 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        //LoginActivity에서 보낸 Intent 받기.
+
+        // LoginActivity에서 보낸 Intent 받기.
         Intent Intent = getIntent();
         String userID = getIntent().getStringExtra("userID");
         String userEmail = getIntent().getStringExtra("userEmail");
         String userPass = getIntent().getStringExtra("userPass");
 
-        //번들 객체생성, 값 저장.
+        // 번들 객체생성, 값 저장.
         Bundle bundle = new Bundle();
         bundle.putString("userID",userID);
         bundle.putString("userEmail",userEmail);
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         frag2 = new Frag2();
         frag3 = new Frag3();
 
-        //fragment로 번들 전달.
+        // fragment로 번들 전달.
         frag1.setArguments(bundle);
         frag2.setArguments(bundle);
         frag3.setArguments(bundle);

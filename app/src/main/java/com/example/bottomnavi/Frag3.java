@@ -23,6 +23,8 @@ public class Frag3 extends Fragment {
         String userID = bundle.getString("userID");
         String userEmail = bundle.getString("userEmail");
         String userPass = bundle.getString("userPass");
+
+
         return view;
     }
 }
