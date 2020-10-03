@@ -76,14 +76,14 @@ public class Frag1 extends Fragment {
             }
         });
 
-        //회원탈퇴 버튼 구현.
+        // 회원탈퇴 버튼 구현.
         btn_leave.setOnClickListener(new View.OnClickListener(){
            public void onClick(View v){
                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                builder.setTitle("정말로 삭제 하시겠습니까?");
                builder.setMessage("복구가 불가능 합니다.");
 
-               //경고창에서 예를 눌렀을 경우.
+               // 경고창에서 예를 눌렀을 경우.
                builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
                    @Override
                    public void onClick(DialogInterface dialogInterface, int i) {
@@ -115,7 +115,7 @@ public class Frag1 extends Fragment {
 
                });
 
-               //경고창에서 아니오를 눌렀을경우
+               // 경고창에서 아니오를 눌렀을경우
                builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
                    @Override
                    public void onClick(DialogInterface dialogInterface, int i) {

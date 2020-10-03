@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         et_id = (EditText) findViewById(R.id.et_id);
         et_pass = (EditText) findViewById(R.id.et_pass);
 
@@ -44,16 +46,14 @@ public class LoginActivity extends AppCompatActivity {
         editor = setting.edit();
 
         // 자동 로그인
-
         if(setting.getBoolean("enable", false)) {
              et_id.setText(setting.getString("id", ""));
              et_pass.setText(setting.getString("pw", ""));
             cb_save.setChecked(true);
 
+            // 현재 작동하지 않음
             btn_login.performClick();
-
         }
-
 
 
         // 회원가입 버튼을 누를 시 실행
@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // 로그인 버튼
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // CheckBox
+        // 로그인 유지 CheckBox
         cb_save.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -119,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putBoolean("enable", true);
                     editor.commit();
                 } else {
-                    Toast.makeText(getApplicationContext(), "내다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "자동 로그인 해제", Toast.LENGTH_SHORT).show();
                     editor.remove("id");
                     editor.remove("pw");
                     editor.remove("enable");

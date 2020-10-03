@@ -3,7 +3,10 @@
     package="com.example.bottomnavi">
 
     <uses-permission android:name="android.permission.INTERNET" />
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+=======
+>>>>>>> 5aa1871891bf4d91507faea4a87cbd01dfdb4c1e
 
     <application
         android:usesCleartextTraffic="true"
@@ -13,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".privateAskActivity"></activity>
+        <activity android:name=".privateAskActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,5 +28,8 @@
         <activity android:name=".MainActivity" />
     </application>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5aa1871891bf4d91507faea4a87cbd01dfdb4c1e
 </manifest>
