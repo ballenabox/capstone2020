@@ -36,7 +36,6 @@ public class Frag3 extends Fragment {
         String userEmail = bundle.getString("userEmail");
         String userPass = bundle.getString("userPass");
 
-<<<<<<< HEAD
         /*
         pieChart = (PieChart) getView().findViewById(R.id.piechart);
 
@@ -77,9 +76,6 @@ public class Frag3 extends Fragment {
 
         pieChart.setData(data);
 */
-=======
-
->>>>>>> 5aa1871891bf4d91507faea4a87cbd01dfdb4c1e
         return view;
     }
 }
