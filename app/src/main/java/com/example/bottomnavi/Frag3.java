@@ -33,8 +33,7 @@ public class Frag3 extends Fragment {
         //MainActivity에서 전달한 번들 저장
         Bundle bundle = getArguments();
         String userID = bundle.getString("userID");
-        String userEmail = bundle.getString("userEmail");
-        String userPass = bundle.getString("userPass");
+
 
         /*
         pieChart = (PieChart) getView().findViewById(R.id.piechart);
