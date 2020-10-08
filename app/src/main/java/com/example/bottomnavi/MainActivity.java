@@ -52,13 +52,21 @@ public class MainActivity extends AppCompatActivity {
         String userID = getIntent().getStringExtra("userID");
         String userEmail = getIntent().getStringExtra("userEmail");
         String userPass = getIntent().getStringExtra("userPass");
-
+        /*
+        String menuId = getIntent().getStringExtra("menuId");
+        String foodTheme = getIntent().getStringExtra("foodTheme");
+        Integer menuCount = getIntent().getIntExtra("menuCount",0);
+         */
         // 번들 객체생성, 값 저장.
         Bundle bundle = new Bundle();
         bundle.putString("userID",userID);
         bundle.putString("userEmail",userEmail);
         bundle.putString("userPass",userPass);
-
+        /*
+        bundle.putString("menuId",menuId);
+        bundle.putString("foodTheme",foodTheme);
+        bundle.putInt("menuCount",menuCount);
+         */
 
         frag1 = new Frag1();
         frag2 = new Frag2();

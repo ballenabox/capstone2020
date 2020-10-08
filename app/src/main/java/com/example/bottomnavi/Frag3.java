@@ -1,15 +1,18 @@
 package com.example.bottomnavi;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.android.volley.Response;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
@@ -24,7 +27,7 @@ public class Frag3 extends Fragment {
 
     private View view;
     PieChart pieChart;
-
+    int[] colorArray = new int[]{Color.LTGRAY,Color.BLUE,Color.RED};
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,49 +36,37 @@ public class Frag3 extends Fragment {
         //MainActivity에서 전달한 번들 저장
         Bundle bundle = getArguments();
         String userID = bundle.getString("userID");
+        /*
         String userEmail = bundle.getString("userEmail");
         String userPass = bundle.getString("userPass");
+        String menuId = bundle.getString("menuId");
+        String foodTheme = bundle.getString("foodTheme");
+        Integer menuCount = bundle.getInt("menuCount",0);
+        */
 
-        /*
-        pieChart = (PieChart) getView().findViewById(R.id.piechart);
-
+        //차트 설정
+        pieChart = (PieChart) view.findViewById(R.id.pieChart);
+        PieDataSet pieDataSet = new PieDataSet(data1(),"좋음싫음설문");
+        pieDataSet.setColors(colorArray);
+        PieData pieData = new PieData(pieDataSet);
+        pieChart.setDrawEntryLabels(true);
         pieChart.setUsePercentValues(true);
-        pieChart.getDescription().setEnabled(false);
-        pieChart.setExtraOffsets(5,10,5,5);
+        pieData.setValueTextSize(25);
+        pieChart.setCenterText("종류");
+        pieChart.setCenterTextSize(20);
+        pieChart.setHoleRadius(30);
+        pieChart.setData(pieData);
+        pieChart.invalidate();
 
-        pieChart.setDragDecelerationFrictionCoef(0.95f);
-
-        pieChart.setDrawHoleEnabled(false);
-        pieChart.setHoleColor(Color.WHITE);
-        pieChart.setTransparentCircleRadius(61f);
-
-        ArrayList<PieEntry> yValues = new ArrayList<PieEntry>();
-
-        yValues.add(new PieEntry(34f,"Japen"));
-        yValues.add(new PieEntry(23f,"USA"));
-        yValues.add(new PieEntry(14f,"UK"));
-        yValues.add(new PieEntry(35f,"India"));
-        yValues.add(new PieEntry(40f,"Russia"));
-        yValues.add(new PieEntry(40f,"Korea"));
-
-        Description description = new Description();
-        description.setText("세계 국가"); //라벨
-        description.setTextSize(15);
-        pieChart.setDescription(description);
-
-        pieChart.animateY(1000, Easing.EasingOption.EaseInOutCubic); //애니메이션
-
-        PieDataSet dataSet = new PieDataSet(yValues,"Countries");
-        dataSet.setSliceSpace(3f);
-        dataSet.setSelectionShift(5f);
-        dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
-
-        PieData data = new PieData((dataSet));
-        data.setValueTextSize(10f);
-        data.setValueTextColor(Color.YELLOW);
-
-        pieChart.setData(data);
-*/
         return view;
+    }
+    //차트 속성 배열
+    private ArrayList<PieEntry>data1(){
+        ArrayList<PieEntry>datavalue = new ArrayList<>();
+
+        datavalue.add(new PieEntry(30,"무응답"));
+        datavalue.add(new PieEntry(50,"좋음"));
+        datavalue.add(new PieEntry(20,"싫음"));
+        return datavalue;
     }
 }

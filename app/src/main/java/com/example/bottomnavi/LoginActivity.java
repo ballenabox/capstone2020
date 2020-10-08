@@ -83,12 +83,22 @@ public class LoginActivity extends AppCompatActivity {
                                 String userID = jsonObject.getString("User_ID");
                                 String userEmail = jsonObject.getString("User_Email");
                                 String userPass = jsonObject.getString("Password");
+                                String menuId = jsonObject.getString("menu_id");
+                                String foodTheme = jsonObject.getString("Food_Theme");
+                                Integer menuCount = jsonObject.getInt("Count");
+
 
                                 Toast.makeText(getApplicationContext(), "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.putExtra("userID", userID);
                                 intent.putExtra("userEmail", userEmail);
                                 intent.putExtra("userPass", userPass);
+                                /*
+                                intent.putExtra("menuId",menuId);
+                                intent.putExtra("foodTheme",foodTheme);
+                                intent.putExtra("menuCount",menuCount);
+
+                                 */
                                 startActivity(intent);
                             } else {        // 로그인 실패
                                 Toast.makeText(getApplicationContext(), "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();
