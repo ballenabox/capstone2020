@@ -35,6 +35,7 @@ public class Frag3 extends Fragment {
     private View view;
     private Button btn_piechart;
     private Button btn_barchart;
+    private Button btn_linechart;
     private OnTimePickerSetListener onTimePickerSetListener;
     PieChart pieChart;
     int[] colorArray = new int[]{Color.LTGRAY,Color.BLUE,Color.RED};
@@ -53,6 +54,7 @@ public class Frag3 extends Fragment {
         String foodTheme = bundle.getString("foodTheme");
         Integer menuCount = bundle.getInt("menuCount",0);
         */
+        //파이차트 보기 클릭 시
         btn_piechart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 String userID = "abc123";
@@ -87,8 +89,43 @@ public class Frag3 extends Fragment {
                 queue.add(getCountRequest);
             }
         });
-
+//막대차트 보기 클릭 시
         btn_barchart.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                String userID = "abc123";
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            String china = jsonObject.getString("china");
+                            String fast = jsonObject.getString("fast");
+                            String japan = jsonObject.getString("japan");
+                            String korea = jsonObject.getString("korea");
+                            String usa = jsonObject.getString("usa");
+
+                            if(success) {   // 반환 성공
+                                //데이터를 넘겨주고 화면전환 부분.
+                                onTimePickerSetListener.onTimePickerSet(china,fast,japan,korea,usa);
+                                Intent intent =new Intent(getActivity(),showPieChartActivity.class);
+                                startActivity(intent);
+                            } else {        // 반환 실패
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                GetCountRequest getCountRequest = new GetCountRequest(userID, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(getActivity());
+                queue.add(getCountRequest);
+            }
+        });
+//라인차트 보기 클릭 시
+        btn_linechart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 String userID = "abc123";
                 Response.Listener<String> responseListener = new Response.Listener<String>() {

@@ -12,7 +12,7 @@ import com.github.mikephil.charting.data.PieEntry;
 
 import java.util.ArrayList;
 
-public class showBarChartActivity extends AppCompatActivity {
+public class showBarChartActivity extends AppCompatActivity implements Frag3.OnTimePickerSetListener {
     private int Cchi;
     private int Cfast;
     private int Cjap;
@@ -35,6 +35,14 @@ public class showBarChartActivity extends AppCompatActivity {
         barChart.invalidate();
 
 
+    }
+    @Override
+    public void onTimePickerSet(String chi, String fast, String jap, String kor, String usa) {
+        Cchi = Integer.valueOf(chi);
+        Cfast = Integer.valueOf(fast);
+        Cjap = Integer.valueOf(jap);
+        Ckor = Integer.valueOf(kor);
+        Cusa = Integer.valueOf(usa);
     }
     private ArrayList<BarEntry>data1(){
         ArrayList<BarEntry>datavalue = new ArrayList<>();
