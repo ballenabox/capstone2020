@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".showLineChartActivity"></activity>
+        <activity android:name=".showBarChartActivity" />
+        <activity android:name=".showPieChartActivity" />
         <activity android:name=".privateAskActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -21,8 +24,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

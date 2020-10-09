@@ -13,12 +13,11 @@ public class GetCountRequest extends StringRequest {
     final static private String URL = "http://211.192.245.92:81/test2/GetCount.php";
     private Map<String, String> map;
 
-    public GetCountRequest(String User_ID, String Food_Theme, Response.Listener<String> listener) {
+    public GetCountRequest(String User_ID, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
         map.put("User_ID", User_ID);
-        map.put("Food_Theme", Food_Theme);
     }
 
     @Override
