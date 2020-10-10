@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         long curTime = System.currentTimeMillis();
         long gapTime = curTime - backBtnTime;
 
-        if (0 <= gapTime && 2000 >= gapTime) {
+        if(0 <= gapTime && 2000 >= gapTime) {
             super.onBackPressed();
         } else {
             backBtnTime = curTime;
