@@ -2,6 +2,7 @@ package com.example.bottomnavi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -12,12 +13,8 @@ import com.github.mikephil.charting.data.PieEntry;
 
 import java.util.ArrayList;
 
-public class showBarChartActivity extends AppCompatActivity implements Frag3.OnTimePickerSetListener {
-    private int Cchi;
-    private int Cfast;
-    private int Cjap;
-    private int Ckor;
-    private int Cusa;
+public class showBarChartActivity extends AppCompatActivity {
+
     BarChart barChart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,22 +33,19 @@ public class showBarChartActivity extends AppCompatActivity implements Frag3.OnT
 
 
     }
-    @Override
-    public void onTimePickerSet(String chi, String fast, String jap, String kor, String usa) {
-        Cchi = Integer.valueOf(chi);
-        Cfast = Integer.valueOf(fast);
-        Cjap = Integer.valueOf(jap);
-        Ckor = Integer.valueOf(kor);
-        Cusa = Integer.valueOf(usa);
-    }
     private ArrayList<BarEntry>data1(){
         ArrayList<BarEntry>datavalue = new ArrayList<>();
-
-        datavalue.add(new BarEntry(0,Cchi));
-        datavalue.add(new BarEntry(1,Cfast));
-        datavalue.add(new BarEntry(2,Cjap));
-        datavalue.add(new BarEntry(3,Ckor));
-        datavalue.add(new BarEntry(4,Cusa));
+        Intent intent = getIntent();
+        int china = Integer.valueOf(getIntent().getStringExtra("china"));
+        int fast = Integer.valueOf(getIntent().getStringExtra("fast"));
+        int japan = Integer.valueOf(getIntent().getStringExtra("japan"));
+        int korea = Integer.valueOf(getIntent().getStringExtra("korea"));
+        int usa = Integer.valueOf(getIntent().getStringExtra("usa"));
+        datavalue.add(new BarEntry(0,china));
+        datavalue.add(new BarEntry(1,fast));
+        datavalue.add(new BarEntry(2,japan));
+        datavalue.add(new BarEntry(3,korea));
+        datavalue.add(new BarEntry(4,usa));
         return datavalue;
     }
 }

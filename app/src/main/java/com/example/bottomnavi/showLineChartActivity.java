@@ -2,6 +2,7 @@ package com.example.bottomnavi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -13,12 +14,8 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.ArrayList;
 
-public class showLineChartActivity extends AppCompatActivity implements Frag3.OnTimePickerSetListener {
-    private int Cchi;
-    private int Cfast;
-    private int Cjap;
-    private int Ckor;
-    private int Cusa;
+public class showLineChartActivity extends AppCompatActivity  {
+
     LineChart lineChart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,23 +33,20 @@ public class showLineChartActivity extends AppCompatActivity implements Frag3.On
         lineChart.invalidate();
 
     }
-    @Override
-    public void onTimePickerSet(String chi, String fast, String jap, String kor, String usa) {
-        Cchi = Integer.valueOf(chi);
-        Cfast = Integer.valueOf(fast);
-        Cjap = Integer.valueOf(jap);
-        Ckor = Integer.valueOf(kor);
-        Cusa = Integer.valueOf(usa);
-    }
 
     private ArrayList<Entry>data1(){
         ArrayList<Entry>datavalue = new ArrayList<>();
-
-        datavalue.add(new Entry(0,Cchi));
-        datavalue.add(new Entry(1,Cfast));
-        datavalue.add(new Entry(2,Cjap));
-        datavalue.add(new Entry(3,Ckor));
-        datavalue.add(new Entry(4,Cusa));
+        Intent intent = getIntent();
+        int china = Integer.valueOf(getIntent().getStringExtra("china"));
+        int fast = Integer.valueOf(getIntent().getStringExtra("fast"));
+        int japan = Integer.valueOf(getIntent().getStringExtra("japan"));
+        int kor = Integer.valueOf(getIntent().getStringExtra("korea"));
+        int usa = Integer.valueOf(getIntent().getStringExtra("usa"));
+        datavalue.add(new Entry(0,china));
+        datavalue.add(new Entry(1,fast));
+        datavalue.add(new Entry(2,japan));
+        datavalue.add(new Entry(3,kor));
+        datavalue.add(new Entry(4,usa));
         return datavalue;
     }
 

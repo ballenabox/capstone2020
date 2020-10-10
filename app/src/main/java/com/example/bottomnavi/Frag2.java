@@ -34,7 +34,7 @@ public class Frag2 extends Fragment {
 
         // Button 정보
         btn_chi = (Button) view.findViewById(R.id.btn_chi);
-        btn_kor = (Button) view.findViewById(R.id.btn_kor);
+        btn_kor = (Button) view.findViewById(R.id.btn_recommend);
         btn_jap = (Button) view.findViewById(R.id.btn_jap);
         btn_usa = (Button) view.findViewById(R.id.btn_usa);
         btn_fast = (Button) view.findViewById(R.id.btn_fast);

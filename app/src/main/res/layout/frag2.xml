@@ -19,7 +19,7 @@
         android:layout_marginBottom="16dp"
         android:text="Menu Category"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_kor"
+        app:layout_constraintBottom_toTopOf="@+id/btn_recommend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,7 +29,7 @@
     <!-- 버튼을 누르면 해당 메뉴의 Count + 1 -->
 
     <Button
-        android:id="@+id/btn_kor"
+        android:id="@+id/btn_recommend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -59,9 +59,9 @@
         android:text="중식"
         android:textSize="24sp"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/btn_kor"
-        app:layout_constraintStart_toStartOf="@+id/btn_kor"
-        app:layout_constraintTop_toBottomOf="@+id/btn_kor" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_recommend"
+        app:layout_constraintStart_toStartOf="@+id/btn_recommend"
+        app:layout_constraintTop_toBottomOf="@+id/btn_recommend" />
 
     <Button
         android:id="@+id/btn_jap"

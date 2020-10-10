@@ -33,10 +33,13 @@ import java.util.ArrayList;
 public class Frag3 extends Fragment {
 
     private View view;
+    private Button btn_chart,btn_recommend;
+    /*
     private Button btn_piechart;
     private Button btn_barchart;
     private Button btn_linechart;
-    private OnTimePickerSetListener onTimePickerSetListener;
+    public OnTimePickerSetListener onTimePickerSetListener;
+     */
     PieChart pieChart;
     int[] colorArray = new int[]{Color.LTGRAY,Color.BLUE,Color.RED};
     @Nullable
@@ -54,6 +57,23 @@ public class Frag3 extends Fragment {
         String foodTheme = bundle.getString("foodTheme");
         Integer menuCount = bundle.getInt("menuCount",0);
         */
+        // Button 정보
+        btn_chart = view.findViewById(R.id.btn_chart);
+        btn_recommend = view.findViewById(R.id.btn_recommend);
+        /*
+        btn_piechart = (Button) view.findViewById(R.id.btn_piechart);
+        btn_barchart = (Button) view.findViewById(R.id.btn_barchart);
+        btn_linechart = (Button) view.findViewById(R.id.btn_linechart);
+         */
+        btn_chart.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(),ChartActivity.class);
+                startActivity(intent);
+            }
+        });
+        /*
         //파이차트 보기 클릭 시
         btn_piechart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
@@ -72,7 +92,9 @@ public class Frag3 extends Fragment {
 
                             if(success) {   // 반환 성공
                                 //데이터를 넘겨주고 화면전환 부분.
-                                onTimePickerSetListener.onTimePickerSet(china,fast,japan,korea,usa);
+
+
+                               // onTimePickerSetListener.onTimePickerSet(china,fast,japan,korea,usa);
                                 Intent intent =new Intent(getActivity(),showPieChartActivity.class);
                                 startActivity(intent);
                             } else {        // 반환 실패
@@ -89,10 +111,16 @@ public class Frag3 extends Fragment {
                 queue.add(getCountRequest);
             }
         });
+
+         */
 //막대차트 보기 클릭 시
-        btn_barchart.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
+        /*
+        btn_barchart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
                 String userID = "abc123";
+
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -106,12 +134,12 @@ public class Frag3 extends Fragment {
                             String usa = jsonObject.getString("usa");
 
                             if(success) {   // 반환 성공
-                                //데이터를 넘겨주고 화면전환 부분.
+
                                 onTimePickerSetListener.onTimePickerSet(china,fast,japan,korea,usa);
                                 Intent intent =new Intent(getActivity(),showPieChartActivity.class);
                                 startActivity(intent);
-                            } else {        // 반환 실패
 
+                            } else {        // 반환 실패
                             }
 
                         } catch (JSONException e) {
@@ -119,9 +147,12 @@ public class Frag3 extends Fragment {
                         }
                     }
                 };
+
                 GetCountRequest getCountRequest = new GetCountRequest(userID, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(getActivity());
                 queue.add(getCountRequest);
+
+
             }
         });
 //라인차트 보기 클릭 시
@@ -142,8 +173,8 @@ public class Frag3 extends Fragment {
 
                             if(success) {   // 반환 성공
                                 //데이터를 넘겨주고 화면전환 부분.
-                                onTimePickerSetListener.onTimePickerSet(china,fast,japan,korea,usa);
-                                Intent intent =new Intent(getActivity(),showPieChartActivity.class);
+                     //           onTimePickerSetListener.onTimePickerSet(china,fast,japan,korea,usa);
+                                Intent intent =new Intent(getActivity(),showLineChartActivity.class);
                                 startActivity(intent);
                             } else {        // 반환 실패
 
@@ -159,6 +190,9 @@ public class Frag3 extends Fragment {
                 queue.add(getCountRequest);
             }
         });
+
+
+         */
         //차트 설정
         /*
         pieChart = (PieChart) view.findViewById(R.id.pieChart);
@@ -177,10 +211,12 @@ public class Frag3 extends Fragment {
          */
         return view;
     }
-
+/*
     public interface OnTimePickerSetListener{
         void onTimePickerSet(String chi, String fast, String jap, String kor, String usa);
     }
+
+ */
     //차트 속성 배열
     /*
     private ArrayList<PieEntry>data1(){
@@ -194,20 +230,25 @@ public class Frag3 extends Fragment {
 
      */
     //onAttach는 얻어온 context를 사용하여 형변환 후, onTimePickerSetListener 변수에 넣고 사용.
+    /*
     @Override
     public void onAttach(Context context){
         super.onAttach(context);
         if(context instanceof OnTimePickerSetListener){
             onTimePickerSetListener = (OnTimePickerSetListener) context;
         } else {
-            throw new RuntimeException(context.toString() +"must implements Ontimepickersetlistener");
-
+//                throw new RuntimeException(context.toString()+"must implements");
         }
     }
+
+     */
+    /*
     //값 해체
     @Override
     public void onDetach(){
         super.onDetach();
         onTimePickerSetListener = null;
     }
+
+     */
 }
