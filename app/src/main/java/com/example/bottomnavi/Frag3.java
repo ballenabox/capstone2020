@@ -95,7 +95,7 @@ public class Frag3 extends Fragment {
 
                                 AlertDialog.Builder recAlert = new AlertDialog.Builder(getActivity())
                                         .setTitle("추천 메뉴")
-                                        .setMessage(res)
+                                        .setMessage("오늘은 " + res + "이 좋겠네요!")
                                         .setPositiveButton("고마워요!", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialogInterface, int i) {
