@@ -1,6 +1,8 @@
 package com.example.bottomnavi;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -74,14 +76,65 @@ public class Frag3 extends Fragment {
                 startActivity(intent);
             }
         });
+
         btn_recommend.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(getActivity(),ChartActivity.class);
-                startActivity(intent);
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            String res = jsonObject.getString("recommend");
+
+                            // 성공 메시지 출력
+                            if(success) {
+
+                                AlertDialog.Builder recAlert = new AlertDialog.Builder(getActivity())
+                                        .setTitle("추천 메뉴")
+                                        .setMessage(res)
+                                        .setPositiveButton("고마워요!", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                            }
+                                        });
+
+                                recAlert.show();
+
+                            }
+                            else {
+                                AlertDialog.Builder recAlert = new AlertDialog.Builder(getActivity())
+                                        .setTitle("오류 발생")
+                                        .setMessage("실패했어요")
+                                        .setPositiveButton("다음에 봐요", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                            }
+                                        });
+
+                                recAlert.show();
+                            }
+
+                        }
+                        catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                // 서버로 Volley를 이용해서 요청을 보냄
+                RecommendRequest recRequest = new RecommendRequest(userID, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
+                queue.add(recRequest);
+
             }
         });
+
         btn_randomMenu.setOnClickListener(new View.OnClickListener(){
 
             @Override
