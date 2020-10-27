@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText et_id, et_pass;
     private Button btn_login, btn_register;
     private CheckBox cb_save;
+    private BackPressCloseHandler backPressCloseHandler;
     SharedPreferences setting;
     SharedPreferences.Editor editor;
 
@@ -45,13 +46,16 @@ public class LoginActivity extends AppCompatActivity {
         setting = getSharedPreferences("setting", 0);
         editor = setting.edit();
 
+        backPressCloseHandler = new BackPressCloseHandler(this);
+
         // 자동 로그인
         if(setting.getBoolean("enable", false)) {
-             et_id.setText(setting.getString("id", ""));
-             et_pass.setText(setting.getString("pw", ""));
+            et_id.setText(setting.getString("id", ""));
+            et_pass.setText(setting.getString("pw", ""));
             cb_save.setChecked(true);
 
             // 현재 작동하지 않음
+            Login();
             btn_login.performClick();
         }
 
@@ -83,23 +87,13 @@ public class LoginActivity extends AppCompatActivity {
                                 String userID = jsonObject.getString("User_ID");
                                 String userEmail = jsonObject.getString("User_Email");
                                 String userPass = jsonObject.getString("Password");
-                                /*
-                                String menuId = jsonObject.getString("menu_id");
-                                String foodTheme = jsonObject.getString("Food_Theme");
-                                Integer menuCount = jsonObject.getInt("Count");
-                                 */
 
                                 Toast.makeText(getApplicationContext(), "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.putExtra("userID", userID);
                                 intent.putExtra("userEmail", userEmail);
                                 intent.putExtra("userPass", userPass);
-                                /*
-                                intent.putExtra("menuId",menuId);
-                                intent.putExtra("foodTheme",foodTheme);
-                                intent.putExtra("menuCount",menuCount);
 
-                                 */
                                 startActivity(intent);
                             } else {        // 로그인 실패
                                 Toast.makeText(getApplicationContext(), "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();
@@ -129,17 +123,63 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("id", id);
                     editor.putString("pw", pw);
                     editor.putBoolean("enable", true);
-                    editor.commit();
                 } else {
                     Toast.makeText(getApplicationContext(), "자동 로그인 해제", Toast.LENGTH_SHORT).show();
                     editor.remove("id");
                     editor.remove("pw");
                     editor.remove("enable");
                     editor.clear();
-                    editor.commit();
                 }
+                editor.commit();
             }
         });
 
     }
+    //로그인함수
+    public void Login(){
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userID = et_id.getText().toString();
+                String userPass = et_pass.getText().toString();
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+
+                            if(success) {   // 로그인 성공
+                                String userID = jsonObject.getString("User_ID");
+                                String userEmail = jsonObject.getString("User_Email");
+                                String userPass = jsonObject.getString("Password");
+
+                                Toast.makeText(getApplicationContext(), "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.putExtra("userID", userID);
+                                intent.putExtra("userEmail", userEmail);
+                                intent.putExtra("userPass", userPass);
+
+                                startActivity(intent);
+                            } else {        // 로그인 실패
+                                Toast.makeText(getApplicationContext(), "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                LoginRequest loginRequest = new LoginRequest(userID, userPass, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+                queue.add(loginRequest);
+
+            }
+        });
+    }
+    @Override public void onBackPressed() {
+        //super.onBackPressed();
+        backPressCloseHandler.onBackPressed(); }
 }

@@ -46,7 +46,7 @@ public class showBarChartActivity extends AppCompatActivity {
         barData.addDataSet(barDataSet3);
         barData.addDataSet(barDataSet4);
 
-        //pieChart description setting
+        //barChart description setting
         Description description = new Description();
         description.setText("먹은 비율");
         description.setTextSize(15);
@@ -57,6 +57,8 @@ public class showBarChartActivity extends AppCompatActivity {
 
 
     }
+
+    //차트에 넣을 데이터
     private ArrayList<BarEntry>data1(){
         ArrayList<BarEntry>datavalue = new ArrayList<>();
         Intent intent = getIntent();

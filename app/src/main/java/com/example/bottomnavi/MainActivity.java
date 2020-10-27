@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Frag1 frag1;
     private Frag2 frag2;
     private Frag3 frag3;
+    private BackPressCloseHandler backPressCloseHandler;
 
     private long backBtnTime = 0;
 
@@ -29,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottomNavi);
+        backPressCloseHandler = new BackPressCloseHandler(this);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
@@ -52,21 +55,13 @@ public class MainActivity extends AppCompatActivity {
         String userID = getIntent().getStringExtra("userID");
         String userEmail = getIntent().getStringExtra("userEmail");
         String userPass = getIntent().getStringExtra("userPass");
-        /*
-        String menuId = getIntent().getStringExtra("menuId");
-        String foodTheme = getIntent().getStringExtra("foodTheme");
-        Integer menuCount = getIntent().getIntExtra("menuCount",0);
-         */
+
         // 번들 객체생성, 값 저장.
         Bundle bundle = new Bundle();
         bundle.putString("userID",userID);
         bundle.putString("userEmail",userEmail);
         bundle.putString("userPass",userPass);
-        /*
-        bundle.putString("menuId",menuId);
-        bundle.putString("foodTheme",foodTheme);
-        bundle.putInt("menuCount",menuCount);
-         */
+
 
         frag1 = new Frag1();
         frag2 = new Frag2();
@@ -98,17 +93,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        long curTime = System.currentTimeMillis();
-        long gapTime = curTime - backBtnTime;
+    @Override public void onBackPressed() {
+        //super.onBackPressed();
+        backPressCloseHandler.onBackPressed(); }
 
-        if(0 <= gapTime && 2000 >= gapTime) {
-            super.onBackPressed();
-        } else {
-            backBtnTime = curTime;
-            Toast.makeText(this, "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
-        }
-
-    }
 }

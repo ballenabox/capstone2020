@@ -25,16 +25,6 @@ public class privateAskActivity extends AppCompatActivity {
         final EditText et_body1 = findViewById(R.id.et_body1);
         EditText et_email1;
 
-
-
-/*
-        // 자신의 이메일 자동으로 채워넣기 기능.
-        Intent intent = getIntent();
-        String stringEmail = intent.getStringExtra("userEmail");
-        et_email1 = findViewById(R.id.et_email1);
-        et_email1.setText(stringEmail);
-        */
-
         // 취소 버튼
         btn_cancel.setOnClickListener(new View.OnClickListener(){
             @Override

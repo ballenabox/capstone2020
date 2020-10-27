@@ -47,6 +47,7 @@ public class showPieChartActivity extends AppCompatActivity {
         pieChart.invalidate();
     }
 
+    //차트에 넣을 데이터
     private ArrayList<PieEntry>data1(){
         ArrayList<PieEntry>datavalue = new ArrayList<>();
         Intent intent = getIntent();

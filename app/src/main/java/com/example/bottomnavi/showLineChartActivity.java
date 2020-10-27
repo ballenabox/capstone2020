@@ -29,7 +29,7 @@ public class showLineChartActivity extends AppCompatActivity  {
         LineDataSet lineDataSet1 = new LineDataSet(data1(),"순서대로 중식,fast,일식,한식,양식");
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(lineDataSet1);
-        //pieChart description setting
+        //lineChart description setting
         Description description = new Description();
         description.setText("먹은 수");
         description.setTextSize(15);
@@ -43,7 +43,7 @@ public class showLineChartActivity extends AppCompatActivity  {
         lineChart.invalidate();
 
     }
-
+//차트에 넣을 데이터
     private ArrayList<Entry>data1(){
         ArrayList<Entry>datavalue = new ArrayList<>();
         Intent intent = getIntent();
