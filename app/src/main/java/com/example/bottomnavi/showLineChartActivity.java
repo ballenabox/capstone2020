@@ -3,6 +3,7 @@ package com.example.bottomnavi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -25,16 +26,18 @@ public class showLineChartActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_show_line_chart);
 
         lineChart = findViewById(R.id.lineChart);
-        LineDataSet lineDataSet1 = new LineDataSet(data1(),"중식,fast,일식,한식,양식");
+        LineDataSet lineDataSet1 = new LineDataSet(data1(),"순서대로 중식,fast,일식,한식,양식");
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-        //pieChart description setting
         dataSets.add(lineDataSet1);
-        LineData lineData = new LineData(lineDataSet1);
+        //pieChart description setting
         Description description = new Description();
         description.setText("먹은 수");
         description.setTextSize(15);
         lineChart.setDescription(description);
 
+        //chart color
+        lineDataSet1.setColor(Color.BLACK);
+        lineDataSet1.setCircleColor(Color.RED);
         LineData data = new LineData(dataSets);
         lineChart.setData(data);
         lineChart.invalidate();
