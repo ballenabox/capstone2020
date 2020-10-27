@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.EventLog;
 
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -27,12 +28,18 @@ public class showPieChartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_pie_chart);
 
         pieChart =findViewById(R.id.pie_Chart);
-        PieDataSet pieDataSet = new PieDataSet(data1(),"먹은음식");
+        PieDataSet pieDataSet = new PieDataSet(data1(),"");
         pieDataSet.setColors(colorArray);
+        //pieChart description setting
         PieData pieData = new PieData(pieDataSet);
+        Description description = new Description();
+        description.setText("먹은 비율");
+        description.setTextSize(15);
+        pieChart.setDescription(description);
         pieChart.setDrawEntryLabels(true);
         pieChart.setUsePercentValues(true);
         pieData.setValueTextSize(25);
+        pieChart.setEntryLabelColor(Color.parseColor("#000000"));
         pieChart.setCenterText("종류");
         pieChart.setCenterTextSize(20);
         pieChart.setHoleRadius(30);

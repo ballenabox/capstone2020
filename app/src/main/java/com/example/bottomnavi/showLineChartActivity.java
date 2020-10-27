@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
@@ -24,9 +26,14 @@ public class showLineChartActivity extends AppCompatActivity  {
 
         lineChart = findViewById(R.id.lineChart);
         LineDataSet lineDataSet1 = new LineDataSet(data1(),"중식,fast,일식,한식,양식");
-
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        //pieChart description setting
         dataSets.add(lineDataSet1);
+        LineData lineData = new LineData(lineDataSet1);
+        Description description = new Description();
+        description.setText("먹은 수");
+        description.setTextSize(15);
+        lineChart.setDescription(description);
 
         LineData data = new LineData(dataSets);
         lineChart.setData(data);

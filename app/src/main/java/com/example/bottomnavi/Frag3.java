@@ -33,7 +33,7 @@ import java.util.ArrayList;
 public class Frag3 extends Fragment {
 
     private View view;
-    private Button btn_chart,btn_recommend;
+    private Button btn_chart,btn_recommend,btn_randomMenu;
     /*
     private Button btn_piechart;
     private Button btn_barchart;
@@ -60,6 +60,7 @@ public class Frag3 extends Fragment {
         // Button 정보
         btn_chart = view.findViewById(R.id.btn_chart);
         btn_recommend = view.findViewById(R.id.btn_recommend);
+        btn_randomMenu = view.findViewById(R.id.btn_randomMenu);
         /*
         btn_piechart = (Button) view.findViewById(R.id.btn_piechart);
         btn_barchart = (Button) view.findViewById(R.id.btn_barchart);
@@ -73,6 +74,24 @@ public class Frag3 extends Fragment {
                 startActivity(intent);
             }
         });
+        btn_recommend.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(),ChartActivity.class);
+                startActivity(intent);
+            }
+        });
+        btn_randomMenu.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(),RandomActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         /*
         //파이차트 보기 클릭 시
         btn_piechart.setOnClickListener(new View.OnClickListener(){
