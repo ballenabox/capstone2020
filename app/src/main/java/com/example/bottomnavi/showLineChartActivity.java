@@ -43,7 +43,8 @@ public class showLineChartActivity extends AppCompatActivity  {
         lineChart.invalidate();
 
     }
-//차트에 넣을 데이터
+
+    //차트에 넣을 데이터
     private ArrayList<Entry>data1(){
         ArrayList<Entry>datavalue = new ArrayList<>();
         Intent intent = getIntent();

@@ -92,7 +92,7 @@ public class Frag2 extends Fragment {
                             JSONObject jsonObject = new JSONObject(response);
                             boolean success = jsonObject.getBoolean("success");
 
-                            // 성공 메시지 출력. (확인용이고 나중에 삭제 예정)
+                            // 성공 메시지 출력.
                             if(success) {
                                 Toast.makeText(getActivity(), "Add Korea", Toast.LENGTH_SHORT).show();
                             }
@@ -130,7 +130,7 @@ public class Frag2 extends Fragment {
                             JSONObject jsonObject = new JSONObject(response);
                             boolean success = jsonObject.getBoolean("success");
 
-                            // 성공 메시지 출력. (확인용이고 나중에 삭제 예정)
+                            // 성공 메시지 출력.
                             if(success) {
                                 Toast.makeText(getActivity(), "Add Japan", Toast.LENGTH_SHORT).show();
                             }
@@ -168,7 +168,7 @@ public class Frag2 extends Fragment {
                             JSONObject jsonObject = new JSONObject(response);
                             boolean success = jsonObject.getBoolean("success");
 
-                            // 성공 메시지 출력. (확인용이고 나중에 삭제 예정)
+                            // 성공 메시지 출력.
                             if(success) {
                                 Toast.makeText(getActivity(), "Add USA", Toast.LENGTH_SHORT).show();
                             }
@@ -206,7 +206,7 @@ public class Frag2 extends Fragment {
                             JSONObject jsonObject = new JSONObject(response);
                             boolean success = jsonObject.getBoolean("success");
 
-                            // 성공 메시지 출력. (확인용이고 나중에 삭제 예정)
+                            // 성공 메시지 출력.
                             if(success) {
                                 Toast.makeText(getActivity(), "Add Fast", Toast.LENGTH_SHORT).show();
                             }

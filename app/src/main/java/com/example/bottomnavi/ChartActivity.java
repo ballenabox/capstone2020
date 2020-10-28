@@ -28,6 +28,7 @@ public class ChartActivity extends AppCompatActivity {
         btn_barchart = findViewById(R.id.btn_barchart);
         btn_linechart = findViewById(R.id.btn_linechart);
 
+        // 파이 차트 출력
         btn_piechart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 String userID = "abc123";
@@ -67,6 +68,7 @@ public class ChartActivity extends AppCompatActivity {
             }
         });
 
+        // 막대 차트 출력
         btn_barchart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 String userID = "abc123";
@@ -105,6 +107,8 @@ public class ChartActivity extends AppCompatActivity {
                 queue.add(getCountRequest);
             }
         });
+
+        // 라인 차트 출력
         btn_linechart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 String userID = "abc123";

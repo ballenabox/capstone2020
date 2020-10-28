@@ -2,6 +2,7 @@ package com.example.bottomnavi;
 import android.app.Activity;
 import android.widget.Toast;
 
+// 뒤로 두 번 눌러 종료시키는 메소드
 public class BackPressCloseHandler {
 
     private long backKeyPressedTime = 0;

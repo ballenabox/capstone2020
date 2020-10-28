@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity {
     private Frag3 frag3;
     private BackPressCloseHandler backPressCloseHandler;
 
-    private long backBtnTime = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
         frag1.setArguments(bundle);
         frag2.setArguments(bundle);
         frag3.setArguments(bundle);
+
+        // 시작 화면을 frag1(My Page)로 설정
         setFrag(0);
     }
 

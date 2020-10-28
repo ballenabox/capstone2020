@@ -54,7 +54,6 @@ public class LoginActivity extends AppCompatActivity {
             et_pass.setText(setting.getString("pw", ""));
             cb_save.setChecked(true);
 
-            // 현재 작동하지 않음
             Login();
             btn_login.performClick();
         }
@@ -135,6 +134,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
     //로그인함수
     public void Login(){
         btn_login.setOnClickListener(new View.OnClickListener() {

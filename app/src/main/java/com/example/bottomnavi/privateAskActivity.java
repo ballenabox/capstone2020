@@ -23,7 +23,6 @@ public class privateAskActivity extends AppCompatActivity {
         Button btn_sending = findViewById(R.id.btn_sending);
         final EditText et_title1 = findViewById(R.id.et_title1);
         final EditText et_body1 = findViewById(R.id.et_body1);
-        EditText et_email1;
 
         // 취소 버튼
         btn_cancel.setOnClickListener(new View.OnClickListener(){
