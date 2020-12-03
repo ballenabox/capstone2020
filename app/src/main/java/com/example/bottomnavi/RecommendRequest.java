@@ -10,7 +10,7 @@ import java.util.Map;
 public class RecommendRequest extends StringRequest {
 
     // 서버 URL 설정(PHP 파일 연동)
-    final static private String URL = "http://211.192.245.92:81/test2/Recommendation.php";
+    final static private String URL = "http://118.67.129.31:80/projectPHP/Recommendation.php";
     private Map<String, String> map;
 
     public RecommendRequest(String User_ID, Response.Listener<String> listener) {

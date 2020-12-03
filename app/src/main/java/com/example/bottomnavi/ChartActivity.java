@@ -31,7 +31,8 @@ public class ChartActivity extends AppCompatActivity {
         // 파이 차트 출력
         btn_piechart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                String userID = "abc123";
+                Intent Intent = getIntent();
+                String userID = getIntent().getStringExtra("userID");
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -71,7 +72,9 @@ public class ChartActivity extends AppCompatActivity {
         // 막대 차트 출력
         btn_barchart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                String userID = "abc123";
+
+                Intent Intent = getIntent();
+                String userID = getIntent().getStringExtra("userID");
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -111,7 +114,9 @@ public class ChartActivity extends AppCompatActivity {
         // 라인 차트 출력
         btn_linechart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                String userID = "abc123";
+
+                Intent Intent = getIntent();
+                String userID = getIntent().getStringExtra("userID");
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
