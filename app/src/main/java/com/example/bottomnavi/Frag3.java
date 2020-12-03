@@ -63,6 +63,7 @@ public class Frag3 extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(getActivity(),ChartActivity.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
         });
